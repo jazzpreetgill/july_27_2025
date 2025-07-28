@@ -1,5 +1,5 @@
 numpy==1.24.4
 pandas==1.5.3
-pycaret==3.3.2
+pycaret[light]==3.3.2
 streamlit==1.25.0
 scikit-learn==1.2.2
