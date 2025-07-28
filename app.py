@@ -1,9 +1,9 @@
-from pycaret.classification import *
+import joblib
 import streamlit as st
 import pandas as pd
 
 
-model = load_model('tuned_rf_diabetes')
+model = joblib.load('tuned_rf_diabetes.pkl')
 
 # input_dict = {'age' : 20, 'sex' : 'male', 'bmi' : 20, 'children' : 2, 'smoker' : 'yes', 'region' : 'southwest'}
 # input_df = pd.DataFrame([input_dict])
@@ -12,8 +12,7 @@ model = load_model('tuned_rf_diabetes')
 # st.markdown(predictions)
 
 def predict(model, input_df):
-    predictions_df = predict_model(estimator=model, data=input_df)
-    predictions = predictions_df.iloc[0]['prediction_label']
+    predictions = model.predict(input_df)[0]
     #prediction = int(prediction.iloc[0]['prediction_label'])
     return predictions
 
